@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Questions and Answers</title>
+    <link rel="stylesheet" href=>
+  </head>
+  <body>
+    <nav>
+      <% if logged_in? %>
+
+        <a href="/questions/new"> Create Question </a>
+        <a href="/logout"> Log Out </a>
+        <p>Welcome, <%=current_user.username %></p>
+
+      <% elsif %>
+
+        <a href="/answer/new"> Create answers to Questions </a>
+        <a href="/logout"> Log Out </a>
+        <p>Welcome, <%=current_user.username %></p>
+
+
+      <% else %>
+        <a href="/signup">Sign Up</a>
+        <a href="/login"> Sign In </a>
+      <%end %>
+
+    </nav>
+    <div class="container">
+      <h1>Questions Section</h1>
+      <% if !@error_message.nil? %>
+      <div class="alert alert-warning">
+        <%= @error_message %>
+      </div>
+    <% end %>
+      <%= yield %>
+    </div>
+
+  </body>
+</html>
