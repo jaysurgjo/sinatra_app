@@ -1,1 +1,4 @@
-#4
+class UserController < Sinatra::Base
+
+
+end

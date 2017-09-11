@@ -1,1 +1,4 @@
-#3
+class QuestionController < Sinatra::Base
+
+
+end
