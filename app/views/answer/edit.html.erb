@@ -1,0 +1,14 @@
+<h1>Edit <%=@figure.name%></h1>
+
+<form action="/answer/<%=@answer.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <p><label for="Answer">Answer:</label>
+  <input type="text" name="answer[name]" id="answer"></p>
+  <label for="answer">Ask what you want to ask:</label>
+    <% Title.all.each do |title| %>
+      <input type="checkbox" name="answer[title_ids][]" id="title_<%=title.id%>" value= "<%= title.id %>" <%='checked' if @figure.title_ids.include?(title.id)%>> <% title.name %></input>
+    <% end %>
+  <p>Or create new Answer: <input type="text" name="answer[name]" id="new_answer"> </p>
+  <input type="submit" name="submit" value="Edit Figure">
+</form>

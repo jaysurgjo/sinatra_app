@@ -1,0 +1,16 @@
+<h1>Create New Answer</h1>
+<form action="/answer" method="post">
+  <p><label for="answer_name">Answer Name:</label>
+  <input type="text" name="answer[name]" id="answer_name"></p>
+  <label for="answer_name">Choose Answer:</label>
+    <% Answer.all.each do |answer| %>
+      <label><input type="checkbox" name="answer[title_ids][]" id="answer_<%=title.id%>" value= "<%= answer.id %>"> <%= title.name %></label>
+    <% end %>
+  <p>Or create new Title: <input type="text" name="title[name]" id="new_title"></p>
+  <label for="figure_name">Choose Landmark:</label>
+    <% Landmark.all.each do |landmark| %>
+      <label><input type="checkbox" name="figure[landmark_ids][]" id="landmark_<%=landmark.id%>" value= "<%= landmark.id %>"> <%= landmark.name %></label>
+    <% end %>
+  <p>Or create new Landmark: <input type="text" name="landmark[name]" id="new_landmark"> </p>
+  <input type="submit" name="submit" value="Create New Figure">
+</form>
